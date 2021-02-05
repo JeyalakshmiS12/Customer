@@ -31,7 +31,6 @@ CustomerRoute.prototype.init = function () {
                 console.log(new Date(),`Response for LOGIN`,response);
                 res.send(response);
             })
-
             .catch(function (e) {
                 console.log(`Error in Customer LOGIN`,e);
                 res.send(e.message);
@@ -51,9 +50,6 @@ CustomerRoute.prototype.init = function () {
                 console.log(`Error In Order Creation`)
                 res.send(e)
             })
-
-
-
     })
 
     this.app.put("/order/cancellation",(req,res)=>{
@@ -103,7 +99,7 @@ CustomerRoute.prototype.init = function () {
 
     })
 
-// Create an API to list purchased Product based on Customer
+   // Create an API to list purchased Product based on Customer
     this.app.get("/customer/order",(req,res)=>{
         console.log(new Date(),`INPUT FOR CUSTOMER PURCHASE ORDER`,req.query)
         return this.customerActionInstance.customerOrder(req.query)
@@ -116,8 +112,6 @@ CustomerRoute.prototype.init = function () {
                 res.send(e)
             })
     })
-
-
 }
 
 module.exports = CustomerRoute;
