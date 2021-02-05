@@ -70,12 +70,9 @@ CustomerService.prototype.login = function (input){
 }
 CustomerService.prototype.customerDetails = function (input){
 
-    console.log("Iput",input)
     return new Promise((resolve,reject)=>{
-
         return customerModel.findOne({"email":input.email,"customerName":input.customerName})
                 .then((response)=>{
-                    console.log("res",response)
                     resolve(response);
                 })
                 .catch((e)=>{

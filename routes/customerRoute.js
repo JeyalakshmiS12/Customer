@@ -53,9 +53,10 @@ CustomerRoute.prototype.init = function () {
     })
 
     this.app.put("/order/cancellation",(req,res)=>{
-        console.log("Request heders",req.headers)
+
         let input = req.body;
         input.token = req.headers.authorization;
+        console.log(new Date,`INPUT FOR ORDER CANCELLATION`,input);
         this.customerActionInstance.orderCancellation(input)
             .then((response)=>{
                 console.log(`Response for Order Cancellation`,response)

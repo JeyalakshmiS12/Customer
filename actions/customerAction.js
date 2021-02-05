@@ -150,7 +150,7 @@ CustomerAction.prototype.orderCancellation = function (input){
                         return this.customerServiceInstance.customerDetails(input)
                             .then((customerResponse)=>{
                                 input['customerId'] = customerResponse.customerId
-                                console.log(`Input for Order Service`,input)
+                                // console.log(`Input for Order Service`,input)
                                 let options = {
                                     method: 'PUT',
                                     body: input,
@@ -247,7 +247,7 @@ CustomerAction.prototype.customerInformation = function (){
                 return requestPromise(options)
             })
             .then((customersOrdersList)=>{
-                console.log("customersOrdersList",JSON.stringify(customersOrdersList));
+                // console.log("customersOrdersList",JSON.stringify(customersOrdersList));
                 if(customersOrdersList && customersOrdersList.status ==="SUCCESS"){
                     response['status'] = "SUCCESS";
                     response['data']['cusotmerOrders'] = customersOrdersList.data.orders;
